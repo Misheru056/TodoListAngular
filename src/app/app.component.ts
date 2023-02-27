@@ -3,8 +3,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ModalFormularioTareasComponent } from './shared/modal-formulario-tareas/modal-formulario-tareas.component';
 import { Task } from './shared/task.interface';
-import { TaskService } from './shared/task.service';
-import { HtmlParser } from '@angular/compiler';
+import { TaskService } from './shared/task.service';;
 
 @Component({
   selector: 'app-root',
@@ -15,6 +14,9 @@ import { HtmlParser } from '@angular/compiler';
 export class AppComponent {
   title = 'TodoList';
 
+
+  ngOnInit(): void {
+  }
   arrayTodo() {
     return this._srvTask.getTodoArray();
   }
@@ -35,15 +37,12 @@ export class AppComponent {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      console.log(event.previousContainer.data, event.container.data,
-        event.previousIndex,
-        event.currentIndex)
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex);
     }
-    // console.log(this.arrayTodo(), this.arrayInProgress(), this.arrayInTesting(), this.arrayDone())
+
   }
 
   openDialog(lugar: number) {
@@ -60,5 +59,6 @@ export class AppComponent {
   moveBack(task: Task) {
     this._srvTask.moveTaskLeft(task);
   }
+
 
 }

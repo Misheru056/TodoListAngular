@@ -9,11 +9,13 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card"
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [SharedModule, MatSidenavModule, MatIconModule, MatButtonModule, MatCardModule, DragDropModule, MatDialogModule,
+    RouterModule,
     BrowserModule,
     BrowserAnimationsModule
   ],

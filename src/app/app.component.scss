@@ -22,3 +22,19 @@ mat-card-actions {
         display: none;
     }
 }
+
+.columns div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+.title {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+        padding-top: 5%;
+    }
+}

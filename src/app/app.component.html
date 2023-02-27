@@ -1,10 +1,14 @@
 <app-header></app-header>
 <main>
   <ng-container id="contenedorDrop" cdkDropListGroup>
-    <div id="todo" cdkDropList [cdkDropListData]="arrayTodo()"
+    <div class="columns" id="todo" cdkDropList [cdkDropListData]="arrayTodo()"
       [cdkDropListConnectedTo]="['inProgress','done','inTesting']" (cdkDropListDropped)="drop($event)">
-      <h2>Nuevas <button mat-button color="primary" (click)="openDialog(1)"> <mat-icon class="mat-18">add</mat-icon>
-        </button></h2>
+      <div class="title">
+        <h2>Nuevas </h2>
+        <button mat-raised-button (click)="openDialog(1)"> <mat-icon color="accent" class="mat-18">add</mat-icon>
+        </button>
+      </div>
+
       <div>
         <mat-card *ngFor="let task of arrayTodo()" cdkDrag>
           <mat-card-header>{{task.title}}</mat-card-header>
@@ -18,10 +22,14 @@
         </mat-card>
       </div>
     </div>
-    <div id="inProgress" cdkDropList [cdkDropListData]="arrayInProgress()"
+    <div class="columns" id="inProgress" cdkDropList [cdkDropListData]="arrayInProgress()"
       [cdkDropListConnectedTo]="['todo','done','inTesting']" (cdkDropListDropped)="drop($event)">
-      <h2>En proceso <button mat-button color="primary" (click)="openDialog(2)"> <mat-icon
-            class="mat-18">add</mat-icon> </button></h2>
+      <div class="title">
+        <h2>En proceso </h2>
+        <button mat-raised-button (click)="openDialog(2)"> <mat-icon color="accent" class="mat-18">add</mat-icon>
+        </button>
+      </div>
+
       <div>
         <mat-card *ngFor="let task of arrayInProgress()" cdkDrag>
           <mat-card-header>{{task.title}}</mat-card-header>
@@ -35,10 +43,14 @@
         </mat-card>
       </div>
     </div>
-    <div id="inTesting" cdkDropList [cdkDropListData]="arrayInTesting()"
+    <div class="columns" id="inTesting" cdkDropList [cdkDropListData]="arrayInTesting()"
       [cdkDropListConnectedTo]="['todo','done','inProgress']" (cdkDropListDropped)="drop($event)">
-      <h2>En pruebas <button mat-button color="primary" (click)="openDialog(3)"> <mat-icon
-            class="mat-18">add</mat-icon> </button></h2>
+      <div class="title">
+        <h2>En pruebas</h2> <button mat-raised-button (click)="openDialog(3)"> <mat-icon color="accent"
+            class="mat-18">add</mat-icon>
+        </button>
+      </div>
+
       <div>
         <mat-card *ngFor="let task of arrayInTesting()" cdkDrag>
           <mat-card-header>{{task.title}}</mat-card-header>
@@ -52,10 +64,14 @@
         </mat-card>
       </div>
     </div>
-    <div id="done" cdkDropList [cdkDropListData]="arrayDone()"
+    <div class="columns" id="done" cdkDropList [cdkDropListData]="arrayDone()"
       [cdkDropListConnectedTo]="['todo','inProgress','inTesting']" (cdkDropListDropped)="drop($event)">
-      <h2>Realizadas <button mat-button color="primary" (click)="openDialog(4)"> <mat-icon
-            class="mat-18">add</mat-icon> </button></h2>
+      <div class="title">
+        <h2>Realizadas </h2><button mat-raised-button (click)="openDialog(4)"> <mat-icon color="accent"
+            class="mat-18">add</mat-icon>
+        </button>
+      </div>
+
       <div>
         <mat-card *ngFor="let task of arrayDone()" cdkDrag>
           <mat-card-header>{{task.title}}</mat-card-header>
