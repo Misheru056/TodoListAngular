@@ -1,0 +1,19 @@
+<h2>Crear nueva tarea</h2>
+<form class="formArea" [formGroup]="taskData">
+    <mat-form-field appearance="fill">
+        <mat-label>Título</mat-label>
+        <input formControlName="titleTask" id="titleTask" matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Información</mat-label>
+        <textarea formControlName="descriptionTask" id="descriptionTask" matInput></textarea>
+    </mat-form-field>
+    <div class="buttonArea">
+        <button (click)="onClose()" mat-button color="primary">
+            Cancelar
+        </button>
+        <button (click)="createTask()" type="submit" mat-button color="primary">
+            Crear
+        </button>
+    </div>
+</form>
