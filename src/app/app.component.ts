@@ -46,7 +46,7 @@ export class AppComponent {
     // console.log(this.arrayTodo(), this.arrayInProgress(), this.arrayInTesting(), this.arrayDone())
   }
 
-  openDialog(lugar: string) {
+  openDialog(lugar: number) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -54,15 +54,11 @@ export class AppComponent {
     this.dialog.open(ModalFormularioTareasComponent, dialogConfig);
   }
 
-  moveForward(event: Event) {
-    console.log(event)
-    
-    console.log((<HTMLElement>event.currentTarget).parentElement?.parentElement?.parentElement?.parentElement?.nextSibling?.appendChild((<HTMLElement>event.currentTarget).parentElement?.parentElement?.parentElement!));
-    // console.log(this.arrayTodo(), this.arrayInProgress(), this.arrayInTesting(), this.arrayDone())
+  moveForward(task: Task) {
+    this._srvTask.moveTaskRight(task);
   }
-  moveBack(event: Event) {
-    console.log((<HTMLElement>event.currentTarget).parentElement?.parentElement?.parentElement?.parentElement?.previousElementSibling?.appendChild((<HTMLElement>event.currentTarget).parentElement?.parentElement?.parentElement!));
-    console.log(this.arrayTodo(), this.arrayInProgress(), this.arrayInTesting(), this.arrayDone())
+  moveBack(task: Task) {
+    this._srvTask.moveTaskLeft(task);
   }
 
 }

@@ -1,6 +1,6 @@
 
 export interface Task {
     title: string,
-    place: string,
+    place: number,
     description: string
 }
